@@ -1,0 +1,265 @@
+/* =====================
+   Global Styles & Resets
+   ===================== */
+:root{
+  --bg:#f8f9fa;
+  --text:#333;
+  --muted:#6b7280;
+  --brand:#0a7cff;
+  --brand-dark:#075ec4;
+  --card:#ffffff;
+  --shadow:0 8px 24px rgba(0,0,0,0.08);
+}
+
+*{ box-sizing:border-box; }
+
+html, body{
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  line-height:1.6;
+}
+
+/* Reusable utility classes */
+.section{
+  padding: 3rem 1.25rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.button{
+  background: var(--brand);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.secondary-btn{
+  background: #e8eef9;
+  color: #0b3a8a;
+  border: 1px solid #c9d7ff;
+  padding: 0.55rem 0.9rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* =====================
+   Header / Navigation
+   ===================== */
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background:#111827;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 0.75rem 1rem;
+}
+
+.logo{ font-weight:800; font-size:1.1rem; }
+
+/* Desktop nav */
+.site-nav{
+  display:flex;
+  gap: 1rem;
+}
+
+.site-nav a{
+  color:#fff;
+  text-decoration:none;
+  padding: 0.4rem 0.5rem;
+  border-radius: 6px;
+}
+
+.site-nav a:hover{ background: rgba(255,255,255,0.1); }
+
+/* CTA in header */
+.hire-btn{
+  background:#ff6b00;
+  color:#fff;
+  border:none;
+  padding:0.5rem 0.8rem;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:700;
+}
+
+.hire-btn:hover{ background:#e65a00; }
+
+/* Mobile hamburger */
+.menu-toggle{
+  display:none;
+  background:transparent;
+  border:none;
+  color:#fff;
+  font-size:1.5rem;
+  margin-right:0.5rem;
+}
+
+/* =====================
+   About
+   ===================== */
+.about-card{
+  background: var(--card);
+  box-shadow: var(--shadow);
+  padding: 1.25rem;
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 1.25rem;
+}
+
+.profile-img{
+  width: 180px;
+  height: 180px;
+  border-radius: 999px;
+  object-fit: cover;
+}
+
+.about-actions{
+  display:flex;
+  gap:0.75rem;
+  margin-top:0.75rem;
+}
+
+.more-text{ margin-top: 0.5rem; color: var(--muted); }
+
+/* =====================
+   Projects
+   ===================== */
+.project-card{
+  display:grid;
+  grid-template-columns: 260px 1fr;
+  gap: 1rem;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  border-radius: 12px;
+  overflow:hidden;
+  margin: 1rem 0;
+}
+
+.project-card img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-content{ padding: 1rem; }
+
+.text-link{ color: var(--brand); text-decoration: none; font-weight: 600; }
+.text-link:hover{ text-decoration: underline; }
+
+/* =====================
+   Skills
+   ===================== */
+.skills-list{
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 0.5rem;
+}
+
+.skills-list li{
+  background:#eaf4fc;
+  padding:0.6rem 0.8rem;
+  border-radius:8px;
+}
+
+/* =====================
+   Contact
+   ===================== */
+form{
+  max-width: 520px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.form-field{ margin: 0.6rem 0; }
+label{ display:block; font-weight:600; margin-bottom: 0.25rem; }
+input[type="text"], input[type="email"], textarea{
+  width:100%;
+  padding:0.65rem;
+  border:1px solid #d6d6de;
+  border-radius:8px;
+  font-size:1rem;
+}
+
+.checkboxes{
+  display:flex;
+  gap:0.75rem;
+  align-items:center;
+}
+
+.form-actions{
+  display:flex;
+  gap:0.75rem;
+  margin-top:0.5rem;
+}
+
+.contact-links{ margin-top: 1rem; color: var(--muted); }
+
+/* =====================
+   Footer
+   ===================== */
+.site-footer{
+  text-align:center;
+  padding: 1.25rem;
+  background:#111827;
+  color:#fff;
+}
+
+/* =====================
+   Responsive
+   ===================== */
+@media (max-width: 900px){
+  .project-card{ grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px){
+  /* Show hamburger, collapse nav */
+  .menu-toggle{ display:block; }
+  .site-nav{
+    position:absolute;
+    right: 0.5rem;
+    top: 56px;
+    background:#111827;
+    flex-direction: column;
+    gap: 0;
+    width: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.25s ease;
+  }
+  .site-nav a{ padding: 0.8rem 1rem; }
+  .site-nav.open{ max-height: 400px; }
+
+  .about-card{
+    grid-template-columns: 1fr;
+    text-align:center;
+  }
+  .profile-img{
+    margin: 0 auto;
+    width: 140px; height: 140px;
+  }
+  .skills-list{ grid-template-columns: 1fr; }
+}
+
+@media (max-width: 420px){
+  html{ font-size: 15px; }
+  .logo{ font-size: 1rem; }
+  .hire-btn{ padding: 0.45rem 0.7rem; }
+}
